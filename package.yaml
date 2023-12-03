@@ -57,7 +57,6 @@ dependencies:
   - scientific
   - data-default
   - unordered-containers
-  - qm-interpolated-string
   - errors
   - hlint
   - megaparsec

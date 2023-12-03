@@ -17,6 +17,8 @@ Unit tests can be run with
 stack test artificial-script:unit-tests  
 ```
 
+I have also included the compiled binary as well (`network`).
+
 ## Known Issues
 
 The optional expressions statement allows any content after the percentage, but prevents further parsing. For example
