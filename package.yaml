@@ -1,0 +1,92 @@
+name: artificial-script
+version: 0.1.0.0
+
+ghc-options: 
+  -Wall
+  -Werror
+  -Wincomplete-patterns
+  -Wincomplete-record-updates
+  -Wincomplete-uni-patterns
+  -Wmissing-signatures
+  -Wtabs
+  -Wunused-imports
+  -fno-warn-name-shadowing
+
+default-extensions:
+  - BangPatterns
+  - BlockArguments
+  - ConstraintKinds
+  - DataKinds
+  - DeriveAnyClass
+  - DeriveDataTypeable
+  - DeriveGeneric
+  - DerivingStrategies
+  - DuplicateRecordFields
+  - FlexibleContexts
+  - FlexibleInstances
+  - FunctionalDependencies
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NamedFieldPuns
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - PatternSynonyms
+  - PolyKinds
+  - QuasiQuotes
+  - RankNTypes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TemplateHaskell
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeFamilyDependencies
+  - TypeOperators
+  - ViewPatterns
+
+dependencies:
+  - base
+  - protolude
+  - text
+  - lens
+  - exceptions
+  - time
+  - scientific
+  - data-default
+  - unordered-containers
+  - qm-interpolated-string
+  - errors
+  - hlint
+  - megaparsec
+
+library:
+  source-dirs: src/lib
+
+executables:
+  script:
+    main: Main.hs
+    source-dirs: src/app
+    ghc-options:
+      - -fPIC
+      - -Werror
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - artificial-script
+
+tests:
+  unit-tests:
+    main: Spec.hs 
+    source-dirs: tests/unit
+    ghc-options:
+      - -fPIC
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+    dependencies:
+      - artificial-script
+      - hspec 
